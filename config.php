@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'credinowe';
+$dbname = 'contracheque';
 $user = 'root';
 $password = '';
 

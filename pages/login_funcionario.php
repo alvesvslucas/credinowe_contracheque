@@ -1,16 +1,18 @@
 <?php
 session_start();
-require '../config.php';
+require '../config.php'; // Inclui a conexão com o banco
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
 
+    // Busca o funcionário pelo e-mail
     $stmt = $pdo->prepare("SELECT * FROM funcionarios WHERE email = ?");
     $stmt->execute([$email]);
     $funcionario = $stmt->fetch();
 
     if ($funcionario && password_verify($senha, $funcionario['senha'])) {
+        // Login bem-sucedido
         $_SESSION['funcionario_id'] = $funcionario['id'];
         header("Location: contracheque.php");
         exit;
