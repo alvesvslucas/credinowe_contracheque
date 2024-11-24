@@ -1,0 +1,114 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #f3f4f6;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  color: #024c8d;
+  margin: 20px 0;
+  font-weight: bold;
+}
+
+/* Botão voltar */
+.btn-voltar {
+  background: #2575fc;
+  color: white;
+  padding: 10px 20px;
+  margin: 20px auto; /* Centraliza o botão horizontalmente */
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-voltar:hover {
+  background: #1e5dbe;
+  transform: translateY(-2px);
+}
+/* Botão voltar */
+.btn-voltar {
+    background: #2575fc;
+    color: white;
+    padding: 10px 20px;
+    width: 10%; /* Mesma largura da tabela */
+    margin: 20px auto; /* Centraliza o botão horizontalmente */
+    border-radius: 10px; /* Igual à borda arredondada da tabela */
+    text-decoration: none;
+    font-weight: bold;
+    display: block; /* Garante que o botão ocupe a largura definida */
+    text-align: center;
+    transition: background 0.3s ease-in-out, transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-voltar:hover {
+    background: #1E5DBE;
+    transform: translateY(-2px);
+}
+
+
+/* Tabela */
+table {
+  width: 90%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table th,
+table td {
+  padding: 15px;
+  text-align: left;
+}
+
+table thead {
+  background: #024c8d;
+  color: white;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+table tbody tr:hover {
+  background: #e3f2fd;
+}
+
+table a {
+  background-color: #333333;
+  color: rgb(25, 180, 228);
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  transition: background 0.3s ease-in-out;
+}
+
+table a:hover {
+  opacity: 0.8;
+}
+
+table a.restaurar {
+  background: #43a047; /* Verde */
+}
+
+table a.restaurar:hover {
+  background: #388e3c;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  table {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+}

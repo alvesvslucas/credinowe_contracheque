@@ -1,29 +1,128 @@
-body {
-  font-family: Arial, sans-serif;
+/* Reset básico para melhor consistência entre navegadores */
+* {
   margin: 0;
   padding: 0;
-  background-color: #f4f4f9;
+  box-sizing: border-box;
 }
 
-header,
-footer {
-  background-color: #333;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-}
-
-main {
+body {
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(
+    to right,
+    #e8eaf6,
+    #cfd8dc
+  ); /* Azul claro e cinza suave */
+  color: #333333;
+  line-height: 1.6;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
   flex-direction: column;
+  min-height: 100vh;
 }
 
-button {
+/* Estilo do header */
+header {
+  background: #d16301; /* Laranja */
+  color: #ffffff;
+  display: flex; /* Ativa o Flexbox */
+  align-items: center; /* Alinha os itens verticalmente no centro */
+  justify-content: center; /* Centraliza os itens horizontalmente */
   padding: 10px 20px;
-  margin: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  position: relative; /* Necessário para posicionar a logo */
+}
+
+header .logo {
+  max-width: 100px; /* Tamanho da logo */
+  height: auto; /* Mantém proporção */
+  position: absolute; /* Faz com que a logo fique fixa no canto esquerdo */
+  top: 50%; /* Centraliza verticalmente */
+  left: 20px; /* Ajusta a posição horizontal */
+  transform: translateY(-50%); /* Corrige o alinhamento vertical */
+}
+
+header h1 {
+  font-size: 2rem; /* Tamanho do texto */
+  font-weight: 700; /* Peso do texto */
+  margin: 0; /* Remove margens padrão */
+  text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo principal */
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  background: #ffffff; /* Branco puro para destaque */
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+  max-width: 400px;
+  width: 100%;
+}
+
+.card h2 {
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333333; /* Preto suave */
+}
+
+/* Botões */
+.btn {
+  display: block;
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
+  font-weight: bold;
+  background: #d16301; /* Laranja consistente com o header */
+  color: #ffffff;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  background: #ff8c42; /* Tom mais claro de laranja */
+  color: #ffffff;
+}
+
+.btn-secondary {
+  background: #024c8d; /* Azul vibrante */
+  color: #ffffff;
+}
+
+.btn-secondary:hover {
+  background: #1e5dbe; /* Tom mais escuro de azul */
+  color: #ffffff;
+}
+
+/* Footer */
+footer {
+  background: #024c8d; /* Azul consistente */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px;
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
 }

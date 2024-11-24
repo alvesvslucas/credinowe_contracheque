@@ -1,7 +1,7 @@
 <?php
 $host = 'localhost';
-$dbname = 'contracheque';
-$user = 'root';
+$dbname = '';
+$user = '';
 $password = '';
 
 try {
