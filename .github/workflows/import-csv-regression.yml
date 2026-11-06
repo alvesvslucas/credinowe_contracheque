@@ -1,0 +1,33 @@
+name: Regressao isolada do stream CSV
+on:
+  push:
+    branches: [main]
+    paths:
+      - pages/importar_usuarios.php
+      - tests/csv-stream-regression.php
+      - tests/fixtures/importar-usuarios-call.before.json
+      - .github/workflows/import-csv-regression.yml
+  pull_request:
+    paths:
+      - pages/importar_usuarios.php
+      - tests/csv-stream-regression.php
+      - tests/fixtures/importar-usuarios-call.before.json
+      - .github/workflows/import-csv-regression.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  csv-stream:
+    runs-on: ubuntu-latest
+    container: php:8.2-cli
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Conferir sintaxe dos arquivos envolvidos
+        run: |
+          php -l -f pages/importar_usuarios.php
+          php -l -f tests/csv-stream-regression.php
+      - name: Executar chamada real com CSV ficticio sem incluir pagina ou banco
+        run: php -n -d error_reporting=-1 -f tests/csv-stream-regression.php
