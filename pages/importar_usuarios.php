@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['file'])) {
 
     if (($handle = fopen($file, 'r')) !== false) {
         // Lê cada linha do arquivo CSV
-        while (($data = fgetcsv($ $handle, 1000, ',')) !== false) {
+        while (($data = fgetcsv($handle, 1000, ',')) !== false) {
           // $data[0] = Nome, $data[1] = E-mail, $data[2] = Senha, $data[3] = Link do Contracheque
           $nome = trim($data[0]);
           $email = trim($data[1]);
