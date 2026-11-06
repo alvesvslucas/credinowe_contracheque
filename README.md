@@ -16,7 +16,7 @@ Aplicação web em PHP com entradas separadas para administração e funcionári
 
 ## Ambiente local
 
-É necessário um servidor PHP com sessões e PDO, além do banco e do driver PDO correspondentes à configuração da aplicação. A versão compatível do PHP e um roteiro reproduzível de criação do banco ainda precisam ser confirmados.
+É necessário um servidor PHP com sessões e PDO, além do banco e do driver PDO correspondentes à configuração da aplicação. A compatibilidade completa da aplicação e um roteiro reproduzível de criação do banco ainda precisam ser confirmados; as checagens isoladas abaixo usam PHP 8.2.
 
 ```sh
 git clone https://github.com/alvesvslucas/credinowe_contracheque.git
@@ -35,4 +35,14 @@ Abra `http://127.0.0.1:8080/`. O acesso depende de contas de teste cadastradas n
 
 ## Estado e validação
 
-Esta revisão é documental: login, permissões de acesso aos documentos e importação de usuários ainda precisam de validação em ambiente de teste. Não publique contracheques, dados de funcionários ou configurações de conexão em demonstrações públicas.
+Foi corrigido o argumento do stream em `pages/importar_usuarios.php`: `$ $handle` → `$handle`, preservando os campos CSV e as consultas existentes.
+
+A [regressão isolada em PHP 8.2](https://github.com/alvesvslucas/credinowe_contracheque/actions/runs/42284437298) foi executada na `main`: reproduziu a falha da expressão anterior e verificou a chamada real corrigida com duas linhas fictícias, quatro campos por linha e fim de arquivo (EOF). O [CI de sintaxe](https://github.com/alvesvslucas/credinowe_contracheque/actions/runs/42284437253) verificou 18 arquivos PHP.
+
+Para repetir o teste isolado com PHP 8.2, na raiz:
+
+```sh
+php -n -d error_reporting=-1 -f tests/csv-stream-regression.php
+```
+
+Essa checagem não executa upload HTTP, autorização, PDO ou banco. Login, permissões de acesso aos documentos e importação completa ainda precisam de validação em ambiente de teste. Não publique contracheques, dados de funcionários ou configurações de conexão em demonstrações públicas.
